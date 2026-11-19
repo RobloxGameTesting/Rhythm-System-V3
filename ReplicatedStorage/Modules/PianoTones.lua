@@ -1,0 +1,317 @@
+local PianoTones = {}
+PianoTones.LowestMidi = 36
+PianoTones.LaneCount = 61
+PianoTones.TONE_ORDER = { "AccousticGrand", "HonkyTonk", "UprightPiano" }
+
+local function ids(list)
+	local result = {}
+
+	for i = 1, 61 do
+		local item = list[i]
+
+		if item then
+			result[i] = "rbxassetid://" .. tostring(item)
+		end
+	end
+
+	return result
+end
+
+PianoTones.Tones = {
+	AccousticGrand = {
+		DisplayName = "Accoustic Grand Piano",
+		ClipLength = 10,
+		Samples = ids({
+			74693904764405,
+			100697606232718,
+			82174331019230,
+			98104550188824,
+			78790855828436,
+			138300013087463,
+			111320588466266,
+			120681072613091,
+			127429366173189,
+			71073019416482,
+			91518019327937,
+			136704947614603,
+			96298536226916,
+			119179700339158,
+			114299182608254,
+			76735407416434,
+			92541781557904,
+			105556313588976,
+			128675059770608,
+			106126227849206,
+			98877012740367,
+			90230511998971,
+			122746772381363,
+			109638249010993,
+			123403403138236,
+			89761840662249,
+			101909995606554,
+			127481705236357,
+			92072485024462,
+			96993523701438,
+			107973038665677,
+			86846636921858,
+			94847601139633,
+			117888818876460,
+			116710841458231,
+			112984791479249,
+			118813128118761,
+			98640269121390,
+			90285781367805,
+			83209414516905,
+			135283115050858,
+			96312382972421,
+			70585999748062,
+			126033775870723,
+			74573112286557,
+			80436372498244,
+			132191674629809,
+			74337248592760,
+			126942675381874,
+			136674908348623,
+			122961352920794,
+			100360645756570,
+			129404628689800,
+			102236441521733,
+			72581282050568,
+			106087702850423,
+			105878206253216,
+			85749046728823,
+			133880271564036,
+			88374282151421,
+			98298521855764
+		})
+	},
+	HonkyTonk = {
+		DisplayName = "Honky-tonk Piano",
+		ClipLength = 10,
+		Samples = ids({
+			94612787058159,
+			106239512267789,
+			109584690698773,
+			125031004925680,
+			80771386780320,
+			102893038933268,
+			77872617140564,
+			114481531600561,
+			104399691013141,
+			123302189653934,
+			91040919855248,
+			124754793073708,
+			111899060969978,
+			95158772035774,
+			91624953753861,
+			94917501762361,
+			111236626765342,
+			74019868057810,
+			126566330408287,
+			76053140643241,
+			136366023402453,
+			85885192609052,
+			130379179537423,
+			115438740654861,
+			97141711414562,
+			90899959538363,
+			111556775969009,
+			75487144518513,
+			124684121156121,
+			105298580485876,
+			90730360960992,
+			81168508524205,
+			116257966303663,
+			104368190803104,
+			90668538385506,
+			128428019013732,
+			105394092030022,
+			89165487150558,
+			138605377151522,
+			94179845091385,
+			123477819064757,
+			95306391215204,
+			85855158905824,
+			80613842148954,
+			110597477506800,
+			87246862011086,
+			105596870363077,
+			74325580000852,
+			90971323471885,
+			122259976687568,
+			121476243554108,
+			96116975134734,
+			79889009483875,
+			78382813909959,
+			107938852059447,
+			124738516171624,
+			91979256249758,
+			86527990821253,
+			140501409889488,
+			84405268818397,
+			93883863294997
+		})
+	},
+	UprightPiano = {
+		DisplayName = "Upright Piano",
+		ClipLength = 10,
+		Samples = ids({
+			87343196826530,
+			101965817902473,
+			133728343510828,
+			87268598111589,
+			131575938363629,
+			130542763073586,
+			104820920758303,
+			98798754886590,
+			119254349437746,
+			138879474034465,
+			88347446346210,
+			95490334975706,
+			92730882093278,
+			72741219574665,
+			118067240047303,
+			123905439861849,
+			108170080113959,
+			135330235050978,
+			124613797438925,
+			133673841034371,
+			94206770493912,
+			115523447036420,
+			118108309422081,
+			129561070711171,
+			133555405506602,
+			111058479887795,
+			73517072010704,
+			73317550661645,
+			77302880647547,
+			70628579183547,
+			74323202298801,
+			120883849373413,
+			104158184864786,
+			80747712158732,
+			111446789713915,
+			124964478492425,
+			102309017987042,
+			71084140449989,
+			127601933000789,
+			88593808562532,
+			123813761445537,
+			138121543833323,
+			122391626864004,
+			84870909467713,
+			97658288576804,
+			104114358037748,
+			125328417707343,
+			139997993392643,
+			112758422933352,
+			82782859221685,
+			98699944223301,
+			104467355530777,
+			82306031497313,
+			81180574696130,
+			140615337519462,
+			140479326403825,
+			109269265753571,
+			76948242556297,
+			132770270575910,
+			76445643222574,
+			126422708881705
+		})
+	}
+}
+
+function PianoTones.GetToneOrder()
+	return PianoTones.TONE_ORDER
+end
+
+function PianoTones.GetDefaultTone()
+	return PianoTones.TONE_ORDER[1]
+end
+
+function PianoTones.HasTone(p): boolean
+	return PianoTones.Tones[p] ~= nil
+end
+
+function PianoTones.MidiToLane(p)
+	local v = p - PianoTones.LowestMidi + 1
+	return if not (v < 1 or PianoTones.LaneCount < v) then v else nil
+end
+
+function PianoTones.GetAssetId(p, p2)
+	local tone = PianoTones.Tones[p]
+	return tone and tone.Samples[p2] or nil
+end
+
+function PianoTones.GetPreloadAssetList(p)
+	local tone = PianoTones.Tones[p]
+
+	if not tone then
+		return {}
+	end
+
+	local result = {}
+
+	for i = 1, PianoTones.LaneCount do
+		result[#result + 1] = tone.Samples[i]
+	end
+
+	return result
+end
+
+local v = {
+	C = 0,
+	D = 2,
+	E = 4,
+	F = 5,
+	G = 7,
+	A = 9,
+	B = 11
+}
+function PianoTones.NoteNameToMidi(value)
+	if type(value) ~= "string" then
+		return nil
+	end
+
+	local v2, v3, v4 = string.match(value, "^([A-Ga-g])([#b]?)(%-?%d+)$")
+
+	if not v2 then
+		return nil
+	end
+
+	local v5 = v[string.upper(v2)]
+
+	if v3 == "#" then
+		v5 += 1
+	elseif v3 == "b" then
+		v5 -= 1
+	end
+
+	return (tonumber(v4) + 1) * 12 + v5
+end
+
+function PianoTones.Resolve(p, p2)
+	local noteNameToMidi = PianoTones.NoteNameToMidi(p2)
+
+	if not noteNameToMidi then
+		warn("[PianoTones] Nama note tidak valid:", p2)
+		return nil
+	end
+
+	local midiToLane = PianoTones.MidiToLane(noteNameToMidi)
+
+	if not midiToLane then
+		return nil
+	end
+
+	local v2 = PianoTones.Tones[p] or PianoTones.Tones[PianoTones.GetDefaultTone()]
+	local selected = v2 and v2.Samples[midiToLane]
+
+	if selected then
+		return selected, 1
+	end
+
+	return nil
+end
+
+return PianoTones

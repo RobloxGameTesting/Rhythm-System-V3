@@ -1,0 +1,16 @@
+return {
+	["STUDS_OFFSET"] = Vector3.new(0, 1.4, 0),
+	BILLBOARD_SIZE = UDim2.fromOffset(40, 18),
+	ALWAYS_ON_TOP = true,
+	MAX_VIEW_DISTANCE = 25,
+	FONT = Enum.Font.Gotham,
+	TEXT_SIZE = 22,
+	TEXT_COLOR = Color3.fromRGB(210, 200, 180),
+	TEXT_TRANSPARENCY = 0.2,
+	TEXT_STROKE_COLOR = Color3.fromRGB(8, 8, 9),
+	TEXT_STROKE_TRANSPARENCY = 0.5,
+	DOT_CHAR = ".",
+	MAX_DOTS = 3,
+	DOT_STEP_DURATION = 0.35,
+	DOT_SEPARATOR = ""
+}

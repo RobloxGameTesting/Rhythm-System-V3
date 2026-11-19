@@ -1,0 +1,1 @@
+return { Attribute = "BandLive", PublishInterval = 0.25, MinJudgedForMvp = 10 }
